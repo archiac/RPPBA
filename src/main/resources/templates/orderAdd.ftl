@@ -2,7 +2,7 @@
 
 <@c.page>
 <h2 xmlns="http://www.w3.org/1999/html">Заказать товар</h2>
-<form action="/order/orderAddOrd" method="post">
+<form action="/contract/orderAddOrd" method="post">
     <div class="form-group row">
         <label for="_model" class="col-sm-2 col-form-label">Наименование</label>
         <div class="col-sm-10">

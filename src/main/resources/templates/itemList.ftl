@@ -46,7 +46,7 @@
                 <button class="btn btn-danger" type="submit">Удалить</button>
             </form>
         <#else>
-            <a href="/order/${item.id}" class="btn btn-danger" role="button" aria-pressed="true">Заказать</a>
+            <a href="/contract/${item.id}" class="btn btn-danger" role="button" aria-pressed="true">Заказать</a>
             </#if>
         </td>
     </tr>

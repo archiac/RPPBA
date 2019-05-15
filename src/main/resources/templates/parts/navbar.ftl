@@ -3,28 +3,16 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <ul class="nav navbar-default">
-        <li class="nav-item active">
-            <a class="nav-link" href="/">Electron <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Телефоны</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Ноутбуки</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/about">О магазие</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Как связаться</a>
-        </li>
         <#if isAdmin>
             <li class="nav-item">
                 <a class="nav-link" href="/user">Список пользователей</a>
             </li>
          <li class="nav-item">
-             <a class="nav-link" href="/order/list">Список заказов</a>
+             <a class="nav-link" href="/contract/list">Список договоров</a>
          </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/company">Список компаний</a>
+        </li>
         </#if>
         <li class="nav-item">
             <a class="nav-link" href="/item">Список товаров</a>

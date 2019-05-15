@@ -21,7 +21,7 @@
             <p class="card-text">${item.options}</p>
         </div>
         <div class="card-footer">
-        <a href="/order/${item.id}" class="btn btn-primary">Заказать</a>
+        <a href="/contract/${item.id}" class="btn btn-primary">Заказать</a>
         </div>
         </div>
     </#list>

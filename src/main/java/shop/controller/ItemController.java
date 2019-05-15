@@ -38,10 +38,8 @@ public class ItemController {
     @PostMapping("delItem")
     public String delete(@RequestParam("id") Item item, Map<String, Object> model){
         itemService.deleteItem(item);
-
         Iterable<Item> items = itemService.loadAllItems();
         model.put("items", items);
-
         return "itemList";
     }
 
