@@ -2,19 +2,19 @@ package shop.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import shop.entity.Company;
-import shop.repos.CompanyRepo;
+import shop.entity.Status;
+import shop.repos.StatusRepo;
 
 import javax.transaction.Transactional;
 
 @Service
-public class CompanyService {
+public class StatusService {
 
     @Autowired
-    private CompanyRepo companyRepo;
+    private StatusRepo statusRepo;
 
     @Transactional
-    public Iterable<Company> loadAllCompany(){
-        return companyRepo.findAll();
+    public Iterable<Status> loadAllStatus(){
+        return statusRepo.findAll();
     }
 }

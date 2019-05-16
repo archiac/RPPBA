@@ -3,7 +3,7 @@
 <@c.page>
 
 <h2 class="text-center">Список компаний</h2>
-    <h6> </h6>
+       <a class="btn btn-primary" href="/company/addCompany" role="button">Добавить компанию</a>
 <table class="table">
     <thead>
     <tr>

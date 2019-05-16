@@ -29,12 +29,13 @@ public class Company {
     public Company() {
     }
 
-    public Company(String company_name, int credit_lim, String address, String getCompany_phone, int status_id, int current_debit) {
+    public Company(String company_name, int credit_lim, String address, String getCompany_phone, int current_debit, Status status) {
         this.company_name = company_name;
         this.credit_lim = credit_lim;
         this.address = address;
         this.getCompany_phone = getCompany_phone;
         this.current_debit = current_debit;
+        this.status=status;
     }
 
     public Long getCompany_id() {

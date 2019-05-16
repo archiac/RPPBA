@@ -11,8 +11,6 @@
                             </#list>
         </select>
     </div>
-
-
     <div class="container-fluid">
         <label> Ответственный: </label>
         <select name="choiceUser" class="mdb-select md-form" data-style="btn-info">
@@ -21,21 +19,18 @@
                             </#list>
         </select>
     </div>
-
     <div class="form-group row">
         <label for="date_shipping" class="col-sm-2 col-form-label">Дата отправки:</label>
         <div class="col-sm-10">
             <input type="text" name="date_shipping" id="date_shipping" class="form-control">
         </div>
     </div>
-
     <div class="form-group row">
         <label for="date_zak" class="col-sm-2 col-form-label">Дата заказа:</label>
         <div class="col-sm-10">
             <input type="text" name="date_zak" id="date_zak" class="form-control">
         </div>
     </div>
-
     <div class="form-group row">
         <label for="type_dog" class="col-sm-2 col-form-label">Тип договора:</label>
         <div class="col-sm-10">
@@ -62,7 +57,6 @@
             <input type="text" name="total_sum" id="total_sum" class="form-control">
         </div>
     </div>
-
     <div>
         <input type="hidden" value="${_csrf.token}" name="_csrf">
         <div class="form-group row">
