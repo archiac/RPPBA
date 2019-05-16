@@ -4,11 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import shop.entity.Company;
 import shop.entity.Contract;
 import shop.entity.Product;
+import shop.entity.User;
 import shop.repos.ContractRepo;
+import shop.service.CompanyService;
 import shop.service.ProductService;
 import shop.service.ContractService;
+import shop.service.UserService;
 
 import java.util.Map;
 
@@ -25,6 +29,12 @@ public class ContractController {
     @Autowired
     private ContractService contractService;
 
+    @Autowired
+    private CompanyService companyService;
+
+    @Autowired
+    private UserService userService;
+
     @GetMapping
     public String itemList( Map<String,Object> model){
         Iterable<Product> items= productService.loadAllItems();
@@ -35,7 +45,7 @@ public class ContractController {
     @GetMapping("{product}")
     public String userEditForm(@PathVariable Product product, Model model) {
         model.addAttribute("item", product);
-        return "orderAdd";
+        return "contractAdd";
     }
 
     @GetMapping("list")
@@ -44,20 +54,22 @@ public class ContractController {
         model.put("contracts",contracts);
         return "contractList";
     }
-    @GetMapping("addOrder")
-    public String phone(){
-        return "orderAdd";
+    @GetMapping("addContract")
+    public String phone(Map<String,Object> model){
+        Iterable<Company> companies= companyService.loadAllCompany();
+        Iterable<User> users=userService.loadAllUsers();
+        model.put("users",users);
+        model.put("companies",companies);
+        return "contractAdd";
     }
 
-    @PostMapping("orderAddOrd")
-    public String addPhone(@RequestParam String _model, @RequestParam String _description, @RequestParam double _price,
-            @RequestParam int _qty, @RequestParam String _username,@RequestParam String _address, @RequestParam String typePayment,
-                           Map<String,Object> model){
-        int _amount=_qty*(int)_price;
-        boolean active=true;
-        //Contract contract=new Contract(_username,_model,_description,_qty,_amount,_address, typePayment,active);
-        //contractRepo.save(contract);
-        return "redirect:/item";
+    @PostMapping("contractAddContr")
+    public String addPhone(@RequestParam("choiceCompany") Company company_id, @RequestParam("choiceUser") User user_id, @RequestParam String date_shipping,
+                           @RequestParam String date_zak, @RequestParam String type_dog, @RequestParam String status_dog,
+                           @RequestParam String type_payment, @RequestParam int total_sum){
+        Contract contract=new Contract(date_zak,date_shipping,type_dog,total_sum,type_payment,status_dog,user_id,company_id);
+        contractRepo.save(contract);
+        return "redirect:/contract/list";
     }
 
     @PostMapping("addSale")

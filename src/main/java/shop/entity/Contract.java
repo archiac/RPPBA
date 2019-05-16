@@ -30,13 +30,15 @@ public class Contract {
     public Contract() {
     }
 
-    public Contract(String date_zak, String date_shipping, String type_dog, int total_sum, String type_payment, String status_dog) {
+    public Contract(String date_zak, String date_shipping, String type_dog, int total_sum, String type_payment, String status_dog, User user, Company company) {
         this.date_zak = date_zak;
         this.date_shipping = date_shipping;
         this.type_dog = type_dog;
         this.total_sum = total_sum;
         this.type_payment = type_payment;
         this.status_dog = status_dog;
+        this.user=user;
+        this.company=company;
     }
 
     public Long getDog_id() {

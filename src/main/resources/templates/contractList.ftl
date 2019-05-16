@@ -1,9 +1,12 @@
+<#include "parts/security.ftl">
 <#import "parts/common.ftl" as c>
 
 <@c.page>
 
 <h2 class="text-center">Список договоров</h2>
-    <h6> </h6>
+    <#if isAdmin>
+    <a class="btn btn-primary" href="/contract/addContract" role="button">Создать контракт</a>
+    </#if>
 <table class="table">
     <thead>
     <tr>
