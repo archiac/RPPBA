@@ -4,24 +4,24 @@
 
 <@c.page>
     <div class="card-deck"
-    <#list items as item>
+    <#list items as product>
         <div class="card bg-light mb-3 my-3" style="max-width: 18rem;">
-        <#--<#if item.getType() == "PHONE">-->
-            <#--<div class="card-header"> ${item.type} </div>-->
+        <#--<#if product.getType() == "PHONE">-->
+            <#--<div class="card-header"> ${product.type} </div>-->
         <#--<#else>-->
         <#--<div class="card-header">Ноутбук</div>-->
         <#--</#if>-->
         <div class="card-body">
-        <h5 class="card-title">${item.name}</h5>
-        <p class="card-text">${item.options}</p>
-            <p class="card-text">${item.description}</p>
-            <p class="card-text">${item.price}</p>
-            <#if isAdmin><p>${item.isexist?string}</p></#if>
-            <p class="card-text">${item.qty}</p>
-            <p class="card-text">${item.options}</p>
+        <h5 class="card-title">${product.name}</h5>
+        <p class="card-text">${product.options}</p>
+            <p class="card-text">${product.description}</p>
+            <p class="card-text">${product.price}</p>
+            <#if isAdmin><p>${product.isexist?string}</p></#if>
+            <p class="card-text">${product.qty}</p>
+            <p class="card-text">${product.options}</p>
         </div>
         <div class="card-footer">
-        <a href="/contract/${item.id}" class="btn btn-primary">Заказать</a>
+        <a href="/contract/${product.id}" class="btn btn-primary">Заказать</a>
         </div>
         </div>
     </#list>

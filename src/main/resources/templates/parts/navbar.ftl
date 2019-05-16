@@ -4,18 +4,21 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <ul class="nav navbar-default">
         <#if isAdmin>
-            <li class="nav-item">
+            <li class="nav-product">
                 <a class="nav-link" href="/user">Список пользователей</a>
             </li>
-         <li class="nav-item">
+         <li class="nav-product">
              <a class="nav-link" href="/contract/list">Список договоров</a>
          </li>
-        <li class="nav-item">
+        <li class="nav-product">
             <a class="nav-link" href="/company">Список компаний</a>
         </li>
+        <li class="nav-product">
+            <a class="nav-link" href="/product">Список товаров</a>
+        </li>
         </#if>
-        <li class="nav-item">
-            <a class="nav-link" href="/item">Список товаров</a>
+        <li class="nav-product">
+            <a class="nav-link" href="/contract/addOrder">Сделать заказ</a>
         </li>
     </ul>
         <#if name == "unknown">

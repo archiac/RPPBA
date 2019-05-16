@@ -1,42 +1,40 @@
 package shop.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import shop.entity.Contract;
-import shop.entity.Item;
+import shop.entity.Product;
 import shop.repos.ContractRepo;
-import shop.service.ItemService;
+import shop.service.ProductService;
 import shop.service.ContractService;
 
 import java.util.Map;
 
 @Controller
 @RequestMapping("/contract")
-@PreAuthorize("hasAuthority('ADMIN')")
 public class ContractController {
 
     @Autowired
     private ContractRepo contractRepo;
 
     @Autowired
-    private ItemService itemService;
+    private ProductService productService;
 
     @Autowired
     private ContractService contractService;
 
     @GetMapping
     public String itemList( Map<String,Object> model){
-        Iterable<Item> items=itemService.loadAllItems();
+        Iterable<Product> items= productService.loadAllItems();
         model.put("items",items);
         return "itemList";
     }
 
-    @GetMapping("{item}")
-    public String userEditForm(@PathVariable Item item, Model model) {
-        model.addAttribute("item", item);
+    @GetMapping("{product}")
+    public String userEditForm(@PathVariable Product product, Model model) {
+        model.addAttribute("item", product);
         return "orderAdd";
     }
 
@@ -46,7 +44,10 @@ public class ContractController {
         model.put("contracts",contracts);
         return "contractList";
     }
-
+    @GetMapping("addOrder")
+    public String phone(){
+        return "orderAdd";
+    }
 
     @PostMapping("orderAddOrd")
     public String addPhone(@RequestParam String _model, @RequestParam String _description, @RequestParam double _price,

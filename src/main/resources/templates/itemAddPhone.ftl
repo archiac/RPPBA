@@ -3,7 +3,7 @@
 <@c.page>
     <h2>Добавление телефона</h2>
     <h5> </h5>
-    <form method="post" action="/item/itemAddPhone">
+    <form method="post" action="/product/itemAddPhone">
     <div class="form-group row">
         <label class="col-sm-2 col-form-label"><h5>Модель:</h5></label>
         <div class="col-sm-10">

@@ -1,27 +1,24 @@
 <#import "parts/common.ftl" as c>
 
 <@c.page>
-<h2 xmlns="http://www.w3.org/1999/html">Заказать товар</h2>
+<h2>Заказать товар</h2>
 <form action="/contract/orderAddOrd" method="post">
     <div class="form-group row">
         <label for="_model" class="col-sm-2 col-form-label">Наименование</label>
         <div class="col-sm-10">
-            ${item.name}
-            <input type="hidden" name="_model" id="_model" class="form-control" value="${item.name}">
+
         </div>
     </div>
     <div class="form-group row">
         <label for="_description" class="col-sm-2 col-form-label">Описание</label>
         <div class="col-sm-10">
-            ${item.description}
-            <input type="hidden" name="_description" id="_description" class="form-control" value="${item.description}">
+
         </div>
     </div>
     <div class="form-group row">
         <label for="_price" class="col-sm-2 col-form-label">Цена</label>
         <div class="col-sm-10">
-            ${item.price}
-            <input type="hidden" name="_price" id="_price" class="form-control" value="${item.price}">
+
         </div>
     </div>
 
