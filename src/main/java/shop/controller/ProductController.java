@@ -12,7 +12,7 @@ import java.util.Collections;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/item")
+@RequestMapping("/product")
 public class ProductController {
 
     @Autowired
@@ -21,10 +21,10 @@ public class ProductController {
     private ProductRepo productRepo;
 
     @GetMapping
-    public String itemList( Map<String,Object> model){
-        Iterable<Product> items= productService.loadAllItems();
-        model.put("items",items);
-        return "itemList";
+    public String productList( Map<String,Object> model){
+        Iterable<Product> products= productService.loadAllItems();
+        model.put("products",products);
+        return "productList";
     }
 
     @GetMapping("{product}")
@@ -41,44 +41,23 @@ public class ProductController {
         return "itemList";
     }
 
-    @GetMapping("addPhone")
-    public String phone(){
-        return "itemAddPhone";
-    }
-
-    @GetMapping("addLaptop")
-    public String laptop(){
-        return "itemAddLaptop";
-    }
-
-
-
-    @PostMapping("itemAddPhone")
-    public String addPhone(@RequestParam String name, @RequestParam String description,
-                           @RequestParam double price, @RequestParam int qty,
-                           @RequestParam String options, @RequestParam boolean isexist,
-                           Map<String,Object> model){
-       // Product product = new Product(name, description, price, isexist, qty, options, Collections.singleton(ItemType.PHONE));
-      //  productRepo.save(product);
-        return "redirect:/item";
-    }
-
-    @PostMapping("itemAddLaptop")
-    public String addLaptop(@RequestParam String name, @RequestParam String description,
-                           @RequestParam double price, @RequestParam int qty,
-                           @RequestParam String options, @RequestParam boolean isexist,
-                           Map<String,Object> model){
-
-      //  Product product = new Product(name, description, price, isexist, qty, options, Collections.singleton(ItemType.LAPTOP));
-       // productRepo.save(product);
-
-        return "redirect:/item";
-    }
-
     @PostMapping("filter")
     public String filter(@RequestParam ("filter") String filter, Map<String, Object> model){
         //Iterable<Product> items= productRepo.findByName(filter);
         //model.put("items",items);
         return "itemList";
     }
+
+    @GetMapping("addProduct")
+    public String phone(){
+        return "productAdd";
+    }
+
+    @PostMapping("productAddproduct")
+    public String addProduct(@RequestParam String product_name,@RequestParam int count, @RequestParam int price, @RequestParam String unit) {
+        Product product=new Product(unit,product_name,price,count);
+        productRepo.save(product);
+        return "redirect:/product";
+    }
+
 }
