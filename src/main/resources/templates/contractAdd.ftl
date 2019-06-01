@@ -28,7 +28,7 @@
         </select>
     </div>
     <div class="form-group row">
-        <label for="count_product" class="col-sm-2 col-form-label">Количество необходимого товара:</label>
+        <label for="count_product" class="col-sm-2 col-form-label">Количество упаковок необходимого товара:</label>
         <div class="col-sm-10">
             <input type="text" name="count_product" id="count_product" class="form-control">
         </div>
@@ -36,13 +36,13 @@
     <div class="form-group row">
         <label for="date_shipping" class="col-sm-2 col-form-label">Дата отправки:</label>
         <div class="col-sm-10">
-            <input type="text" name="date_shipping" id="date_shipping" class="form-control">
+            <input type="date" name="date_shipping" id="date_shipping" class="form-control">
         </div>
     </div>
     <div class="form-group row">
         <label for="date_zak" class="col-sm-2 col-form-label">Дата заказа:</label>
         <div class="col-sm-10">
-            <input type="text" name="date_zak" id="date_zak" class="form-control">
+            <input type="date" name="date_zak" id="date_zak" class="form-control">
         </div>
     </div>
     <div class="container-fluid">
