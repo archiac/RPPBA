@@ -19,6 +19,20 @@
                             </#list>
         </select>
     </div>
+    <div class="container-fluid">
+        <label> Выберите товар: </label>
+        <select name="choiceProduct" class="mdb-select md-form" data-style="btn-info">
+                            <#list products as product>
+                                <option value="${product.product_id}">${product.product_name}</option>
+                            </#list>
+        </select>
+    </div>
+    <div class="form-group row">
+        <label for="count_product" class="col-sm-2 col-form-label">Количество необходимого товара:</label>
+        <div class="col-sm-10">
+            <input type="text" name="count_product" id="count_product" class="form-control">
+        </div>
+    </div>
     <div class="form-group row">
         <label for="date_shipping" class="col-sm-2 col-form-label">Дата отправки:</label>
         <div class="col-sm-10">
@@ -31,32 +45,21 @@
             <input type="text" name="date_zak" id="date_zak" class="form-control">
         </div>
     </div>
-    <div class="form-group row">
-        <label for="type_dog" class="col-sm-2 col-form-label">Тип договора:</label>
-        <div class="col-sm-10">
-            <input type="text" name="type_dog" id="type_dog" class="form-control">
-        </div>
+    <div class="container-fluid">
+        <label> Тип договора: </label>
+        <select name="choiceDogovor" class="mdb-select md-form" data-style="btn-info">
+            <option value="Долгосрочный">Долгосрочный</option>
+            <option value="Краткосрочный">Краткосрочный</option>
+        </select>
     </div>
-    <div class="form-group row">
-        <label for="status_dog" class="col-sm-2 col-form-label">Статус договора:</label>
-        <div class="col-sm-10">
-            <input type="text" name="status_dog" id="status_dog" class="form-control">
-        </div>
-    </div>
-
-    <div class="form-group row">
-        <label for="type_payment" class="col-sm-2 col-form-label">Тип оплаты:</label>
-        <div class="col-sm-10">
-            <input type="text" name="type_payment" id="type_payment" class="form-control">
-        </div>
+    <div class="container-fluid">
+        <label> Тип оплаты: </label>
+        <select name="choicePayment" class="mdb-select md-form" data-style="btn-info">
+            <option value="Наличные">Наличные</option>
+            <option value="Безналичные">Безналичные</option>
+        </select>
     </div>
 
-    <div class="form-group row">
-        <label for="total_sum" class="col-sm-2 col-form-label">Итоговая сумма:</label>
-        <div class="col-sm-10">
-            <input type="text" name="total_sum" id="total_sum" class="form-control">
-        </div>
-    </div>
     <div>
         <input type="hidden" value="${_csrf.token}" name="_csrf">
         <div class="form-group row">

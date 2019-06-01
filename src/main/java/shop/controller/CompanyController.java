@@ -18,7 +18,7 @@ import java.util.Map;
 
 @Controller
 @RequestMapping("/company")
-@PreAuthorize("hasAuthority('ADMIN')")
+@PreAuthorize("hasAuthority('BOSS')")
 public class CompanyController {
 
     @Autowired

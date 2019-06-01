@@ -58,6 +58,8 @@ public class ContractController {
     public String phone(Map<String,Object> model){
         Iterable<Company> companies= companyService.loadAllCompany();
         Iterable<User> users=userService.loadAllUsers();
+        Iterable<Product> products=productService.loadAllItems();
+        model.put("products",products);
         model.put("users",users);
         model.put("companies",companies);
         return "contractAdd";
@@ -65,8 +67,12 @@ public class ContractController {
 
     @PostMapping("contractAddContr")
     public String addPhone(@RequestParam("choiceCompany") Company company_id, @RequestParam("choiceUser") User user_id, @RequestParam String date_shipping,
-                           @RequestParam String date_zak, @RequestParam String type_dog, @RequestParam String status_dog,
-                           @RequestParam String type_payment, @RequestParam int total_sum){
+                           @RequestParam String date_zak, @RequestParam("choiceDogovor") String type_dog,@RequestParam("choiceProduct") Product product,
+                           @RequestParam("count_product") int count_product,
+                           @RequestParam("choicePayment") String type_payment){
+        product.setCount(product.getCount()-count_product);
+        String status_dog="Не отгружен";
+        int total_sum=product.getPrice()*count_product;
         Contract contract=new Contract(date_zak,date_shipping,type_dog,total_sum,type_payment,status_dog,user_id,company_id);
         contractRepo.save(contract);
         return "redirect:/contract/list";
