@@ -7,7 +7,7 @@ known = Session.SPRING_SECURITY_CONTEXT??
     user = Session.SPRING_SECURITY_CONTEXT.authentication.principal
     name = user.getUsername()
     id = user.getId()
-    isAdmin = user.getAuthorities()?seq_contains('ADMIN')
+    isAdmin = user.getAuthorities()?seq_contains('BOSS')
     user_auth = true
     >
 <#else>

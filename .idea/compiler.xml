@@ -9,6 +9,7 @@
         <module name="Kursach" />
         <module name="Kursovaya" />
         <module name="kursovaya" />
+        <module name="RPPBA" />
         <module name="Shop" />
       </profile>
     </annotationProcessing>
@@ -16,6 +17,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Kursach" options="-parameters" />
+      <module name="RPPBA" options="-parameters" />
       <module name="kursovaya" options="-parameters" />
     </option>
   </component>
