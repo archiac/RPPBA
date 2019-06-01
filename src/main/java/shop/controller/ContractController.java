@@ -84,4 +84,11 @@ public class ContractController {
         contractRepo.save(contract);
         return "redirect:/contract/list";
     }
+
+    @PostMapping("addContractShipment")
+    public String addShipment(@RequestParam("contrId") Contract contract){
+        contract.setStatus_dog("Отгружен");
+        contractRepo.save(contract);
+        return "redirect:/contract/list";
+    }
 }

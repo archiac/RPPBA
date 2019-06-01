@@ -16,7 +16,7 @@
         <th>Сумма договора</th>
         <th>Тип оплаты</th>
         <th>Статус договора</th>
-        <#if isAdmin><th>Действие</th></#if>
+        <th>Действие</th>
     </tr>
     </thead>
     <tbody>
@@ -30,6 +30,13 @@
         <td>${contract.total_sum}</td>
         <td>${contract.type_payment}</td>
         <td>${contract.status_dog}</td>
+        <#if !isAdmin && contract.status_dog=="Готовится к отгрузке">
+            <td> <form method="post" action="/contract/addContractShipment">
+                <input type="hidden" value="${contract.dog_id}" name="contrId">
+                <input type="hidden" value="${_csrf.token}" name="_csrf">
+                <button class="btn btn-danger" type="submit">Подтвердить отгрузку</button>
+            </form> </td>
+        </#if>
         <#if isAdmin><td> <form method="post" action="/contract/addContractSale">
             <input type="hidden" value="${contract.dog_id}" name="contractId">
             <input type="hidden" value="${_csrf.token}" name="_csrf">
