@@ -91,4 +91,11 @@ public class ContractController {
         contractRepo.save(contract);
         return "redirect:/contract/list";
     }
+
+    @GetMapping("contractHistory")
+    public String historyList( Map<String,Object> model) {
+        Iterable<Contract> contracts = contractService.loadAllContracts();
+        model.put("contracts", contracts);
+        return "contractHistory";
+    }
 }

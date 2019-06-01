@@ -7,7 +7,7 @@
                 <a class="nav-link" href="/user">Список пользователей</a>
             </li>
          <li class="nav-product">
-             <a class="nav-link" href="/contract/list">Список договоров</a>
+             <a class="nav-link" href="/contract/list">Список активных договоров</a>
          </li>
         <li class="nav-product">
             <a class="nav-link" href="/company">Список компаний</a>
@@ -16,7 +16,7 @@
             <a class="nav-link" href="/product">Список товаров</a>
         </li>
         <li class="nav-product">
-            <a class="nav-link" href="/contract/addOrder">Сделать заказ</a>
+            <a class="nav-link" href="/contract/contractHistory">История заказов</a>
         </li>
     </ul>
         <#if name == "unknown">

@@ -21,6 +21,7 @@
     </thead>
     <tbody>
     <#list contracts as contract>
+    <#if contract.status_dog != "Отгружен">
     <tr>
         <td>${contract.dog_id}</td>
         <td>${contract.date_zak}</td>
@@ -43,6 +44,7 @@
             <button class="btn btn-danger" type="submit">Оформить договор</button>
         </form> </td></#if>
     </tr>
+    </#if>
     </#list>
     </tbody>
 </table>
