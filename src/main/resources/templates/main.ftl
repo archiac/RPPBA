@@ -4,13 +4,13 @@
 
 <@c.page>
     <div class="card-deck"
-    <#list items as product>
+    <#--<#list items as product>
         <div class="card bg-light mb-3 my-3" style="max-width: 18rem;">
-        <#--<#if product.getType() == "PHONE">-->
-            <#--<div class="card-header"> ${product.type} </div>-->
-        <#--<#else>-->
-        <#--<div class="card-header">Ноутбук</div>-->
-        <#--</#if>-->
+        &lt;#&ndash;<#if product.getType() == "PHONE">&ndash;&gt;
+            &lt;#&ndash;<div class="card-header"> ${product.type} </div>&ndash;&gt;
+        &lt;#&ndash;<#else>&ndash;&gt;
+        &lt;#&ndash;<div class="card-header">Ноутбук</div>&ndash;&gt;
+        &lt;#&ndash;</#if>&ndash;&gt;
         <div class="card-body">
         <h5 class="card-title">${product.name}</h5>
         <p class="card-text">${product.options}</p>
@@ -25,5 +25,5 @@
         </div>
         </div>
     </#list>
-    </div>
+    </div>-->
 </@c.page>
