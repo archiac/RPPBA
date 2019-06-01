@@ -10,19 +10,19 @@
         </div>
     </div>
     <div class="form-group row">
-        <label for="count" class="col-sm-2 col-form-label">Количество:</label>
+        <label for="count" class="col-sm-2 col-form-label">Количество в упаковке, шт.:</label>
         <div class="col-sm-10">
             <input type="text" name="count" id="count" class="form-control">
         </div>
     </div>
     <div class="form-group row">
-        <label for="price" class="col-sm-2 col-form-label">Цена:</label>
+        <label for="price" class="col-sm-2 col-form-label">Цена за упаковку, руб.:</label>
         <div class="col-sm-10">
             <input type="text" name="price" id="price" class="form-control">
         </div>
     </div>
     <div class="form-group row">
-        <label for="unit" class="col-sm-2 col-form-label">Единицы хранения:</label>
+        <label for="unit" class="col-sm-2 col-form-label">Количество в 1 упаковке, шт.:</label>
         <div class="col-sm-10">
             <input type="text" name="unit" id="unit" class="form-control">
         </div>

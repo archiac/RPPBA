@@ -23,7 +23,7 @@
             <a class="btn btn-outline-primary" href="/login"> Войти </a>
         <#else>
             <div class="mr-4">${name}</div>
-            <@l.logout />
+            <@l.logout/>
         </#if>
     </ul>
 </nav>

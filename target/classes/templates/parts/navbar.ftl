@@ -15,8 +15,9 @@
         <li class="nav-product">
             <a class="nav-link" href="/product">Список товаров</a>
         </li>
-
-
+        <li class="nav-product">
+            <a class="nav-link" href="/contract/addOrder">Сделать заказ</a>
+        </li>
     </ul>
         <#if name == "unknown">
             <a class="btn btn-outline-primary" href="/login"> Войти </a>
@@ -24,12 +25,5 @@
             <div class="mr-4">${name}</div>
             <@l.logout />
         </#if>
-    <nav class="navbar navbar-light bg-light">
-        <form class="form-inline" method="post" action="/filterMain">
-            <input class="form-control mr-sm-2" name="filterMain" type="search" placeholder="Поиск" aria-label="Search">
-            <input type="hidden" value="${_csrf.token}" name="_csrf">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Найти</button>
-        </form>
-    </nav>
     </ul>
 </nav>
