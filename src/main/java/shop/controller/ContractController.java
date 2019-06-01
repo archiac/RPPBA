@@ -78,10 +78,10 @@ public class ContractController {
         return "redirect:/contract/list";
     }
 
-    @PostMapping("addSale")
-    public String addSale(@RequestParam("orderId") Contract contract){
-       // contract.setActive(false);
+    @PostMapping("addContractSale")
+    public String addSale(@RequestParam("contractId") Contract contract){
+        contract.setStatus_dog("Готовится к отгрузке");
         contractRepo.save(contract);
-        return "redirect:/order/list";
+        return "redirect:/contract/list";
     }
 }

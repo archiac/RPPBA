@@ -1,4 +1,4 @@
-
+<#include "parts/security.ftl">
 <#import "parts/common.ftl" as c>
 
 <@c.page>
@@ -16,6 +16,7 @@
         <th>Сумма договора</th>
         <th>Тип оплаты</th>
         <th>Статус договора</th>
+        <#if isAdmin><th>Действие</th></#if>
     </tr>
     </thead>
     <tbody>
@@ -29,6 +30,11 @@
         <td>${contract.total_sum}</td>
         <td>${contract.type_payment}</td>
         <td>${contract.status_dog}</td>
+        <#if isAdmin><td> <form method="post" action="/contract/addContractSale">
+            <input type="hidden" value="${contract.dog_id}" name="contractId">
+            <input type="hidden" value="${_csrf.token}" name="_csrf">
+            <button class="btn btn-danger" type="submit">Оформить договор</button>
+        </form> </td></#if>
     </tr>
     </#list>
     </tbody>

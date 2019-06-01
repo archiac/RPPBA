@@ -3,7 +3,6 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <ul class="nav navbar-default">
-        <#if isAdmin>
             <li class="nav-product">
                 <a class="nav-link" href="/user">Список пользователей</a>
             </li>
@@ -16,10 +15,8 @@
         <li class="nav-product">
             <a class="nav-link" href="/product">Список товаров</a>
         </li>
-        </#if>
-        <li class="nav-product">
-            <a class="nav-link" href="/contract/addOrder">Сделать заказ</a>
-        </li>
+
+
     </ul>
         <#if name == "unknown">
             <a class="btn btn-outline-primary" href="/login"> Войти </a>

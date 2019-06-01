@@ -1,5 +1,4 @@
 <#import "parts/common.ftl" as c>
-
 <@c.page>
 
 <h2 class="text-center">Список компаний</h2>
@@ -26,6 +25,7 @@
         <td>${company.credit_lim}</td>
         <td>${company.status.status_name}</td>
         <td>${company.current_debit}</td>
+
     </tr>
     </#list>
     </tbody>

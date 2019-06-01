@@ -5,7 +5,7 @@
 <form action="/contract/contractAddContr" method="post">
     <div class="container-fluid">
         <label> Выберите компанию: </label>
-        <select name="choiceCompany" class="mdb-select md-form" data-style="btn-info">
+        <select name="choiceCompany" class="btn btn-default dropdown-toggle" data-style="btn-info">
                             <#list companies as company>
                                 <option value="${company.company_id}">${company.company_name}</option>
                             </#list>
@@ -13,7 +13,7 @@
     </div>
     <div class="container-fluid">
         <label> Ответственный: </label>
-        <select name="choiceUser" class="mdb-select md-form" data-style="btn-info">
+        <select name="choiceUser" class="btn btn-primary dropdown-toggle" data-style="btn-info">
                             <#list users as user>
                                 <option value="${user.id}">${user.fio}</option>
                             </#list>
