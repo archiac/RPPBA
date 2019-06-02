@@ -22,7 +22,7 @@ public class Contract {
     @JoinColumn(name = "company_id")
     private Company company;
 
-    private int total_sum;
+    private double total_sum;
     private String type_payment;
 
     private String status_dog;
@@ -30,7 +30,7 @@ public class Contract {
     public Contract() {
     }
 
-    public Contract(String date_zak, String date_shipping, String type_dog, int total_sum, String type_payment, String status_dog, User user, Company company) {
+    public Contract(String date_zak, String date_shipping, String type_dog, double total_sum, String type_payment, String status_dog, User user, Company company) {
         this.date_zak = date_zak;
         this.date_shipping = date_shipping;
         this.type_dog = type_dog;
@@ -89,11 +89,11 @@ public class Contract {
         this.company = company;
     }
 
-    public int getTotal_sum() {
+    public double getTotal_sum() {
         return total_sum;
     }
 
-    public void setTotal_sum(int total_sum) {
+    public void setTotal_sum(double total_sum) {
         this.total_sum = total_sum;
     }
 

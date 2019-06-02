@@ -38,7 +38,7 @@
                 <button class="btn btn-danger" type="submit">Подтвердить отгрузку</button>
             </form> </td>
         </#if>
-        <#if isAdmin><td> <form method="post" action="/contract/addContractSale">
+        <#if isAdmin && contract.status_dog!="Готовится к отгрузке"><td> <form method="post" action="/contract/addContractSale">
             <input type="hidden" value="${contract.dog_id}" name="contractId">
             <input type="hidden" value="${_csrf.token}" name="_csrf">
             <button class="btn btn-danger" type="submit">Оформить договор</button>

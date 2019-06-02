@@ -71,8 +71,10 @@ public class ContractController {
                            @RequestParam("count_product") int count_product,
                            @RequestParam("choicePayment") String type_payment){
         product.setCount(product.getCount()-count_product);
+
+
         String status_dog="Не отгружен";
-        int total_sum=product.getPrice()*count_product;
+        double total_sum=product.getPrice()*count_product*(1-company_id.getStatus().getDiscount()/100);
         Contract contract=new Contract(date_zak,date_shipping,type_dog,total_sum,type_payment,status_dog,user_id,company_id);
         contractRepo.save(contract);
         return "redirect:/contract/list";
