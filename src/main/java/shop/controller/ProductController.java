@@ -30,23 +30,29 @@ public class ProductController {
     @GetMapping("{product}")
     public String userEditForm(@PathVariable Product product, Model model) {
         model.addAttribute("item", product);
-        return "itemEdi";
+        return "productEdi";
     }
 
-    @PostMapping("delItem")
+    @PostMapping
+    public String productSave(
+            @RequestParam("count") int count, @RequestParam("price") int price, @RequestParam("unit") String  unit,
+            @RequestParam Map<String, String> form,
+            @RequestParam("productId") Product product
+    ) {
+        product.setCount(count);
+        product.setPrice(price);
+        product.setUnit(unit);
+
+        productService.saveProduct(product);
+        return "redirect:/product";
+    }
+
+    @PostMapping("delProduct")
     public String delete(@RequestParam("id") Product product, Map<String, Object> model){
         productService.deleteItem(product);
-        Iterable<Product> items = productService.loadAllItems();
-        model.put("items", items);
-        return "itemList";
+        return "redirect:/product";
     }
 
-    @PostMapping("filter")
-    public String filter(@RequestParam ("filter") String filter, Map<String, Object> model){
-        //Iterable<Product> items= productRepo.findByName(filter);
-        //model.put("items",items);
-        return "itemList";
-    }
 
     @GetMapping("addProduct")
     public String phone(){
@@ -59,5 +65,6 @@ public class ProductController {
         productRepo.save(product);
         return "redirect:/product";
     }
+
 
 }

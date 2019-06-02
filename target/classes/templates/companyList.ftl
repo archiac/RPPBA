@@ -13,6 +13,7 @@
         <th>Кредитный лимит</th>
         <th>Статус компании</th>
         <th>Текущая задолженность</th>
+        <th>Действие</th>
     </tr>
     </thead>
     <tbody>
@@ -25,7 +26,14 @@
         <td>${company.credit_lim}</td>
         <td>${company.status.status_name}</td>
         <td>${company.current_debit}</td>
+        <td><a href="/company/${company.company_id}" class="btn btn-primary" role="button" aria-pressed="true">Редактировать</a>
 
+        <form method="post" action="/company/delCompany">
+            <input type="hidden" value="${company.company_id}" name="id">
+            <input type="hidden" value="${_csrf.token}" name="_csrf">
+            <button class="btn btn-danger" type="submit">      Удалить     </button>
+        </form>
+        </td>
     </tr>
     </#list>
     </tbody>

@@ -3,10 +3,8 @@ package shop.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 import shop.entity.Company;
 import shop.entity.Status;
 import shop.repos.CompanyRepo;
@@ -48,6 +46,35 @@ public class CompanyController {
                             @RequestParam("choiceStatus") Status status_id, @RequestParam int current_debit){
         Company company=new Company(company_name,credit_lim,address,company_phone,current_debit,status_id);
         companyRepo.save(company);
+        return "redirect:/company";
+    }
+
+    @PostMapping("delCompany")
+    public String delete(@RequestParam("id") Company company, Map<String, Object> model){
+        companyService.deleteCompany(company);
+        return "redirect:/company";
+    }
+
+    @GetMapping("{company}")
+    public String userEditForm(@PathVariable Company company, Map<String,Object> model) {
+        Iterable<Status> statuses=statusService.loadAllStatus();
+        model.put("statuses",statuses);
+        model.put("company", company);
+        return "companyEdi";
+    }
+
+    @PostMapping
+    public String productSave(
+            @RequestParam("address") String address, @RequestParam("phone") String phone, @RequestParam("credit") int  credit,
+            @RequestParam("choiceStatus") Status status, @RequestParam("debit") int debit,
+            @RequestParam("companyId") Company company
+    ) {
+        company.setAddress(address);
+        company.setGetCompany_phone(phone);
+        company.setCredit_lim(credit);
+        company.setCurrent_debit(debit);
+        company.setStatus(status);
+        companyService.saveCompany(company);
         return "redirect:/company";
     }
 }

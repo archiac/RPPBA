@@ -17,4 +17,14 @@ public class CompanyService {
     public Iterable<Company> loadAllCompany(){
         return companyRepo.findAll();
     }
+
+    @Transactional
+    public void deleteCompany(Company company){
+        companyRepo.delete(company);
+    }
+
+    @Transactional
+    public Company saveCompany(Company company){
+        return companyRepo.save(company);
+    }
 }
