@@ -18,6 +18,7 @@
     <#list users as user>
     <tr>
         <td>${user.username}</td>
+        <td>${user.fio}</td>
         <td>${user.email}</td>
         <td>${user.phone}</td>
         <td><#list user.roles as role>${role}<#sep>, </#list></td>

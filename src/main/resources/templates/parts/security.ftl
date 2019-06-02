@@ -6,6 +6,7 @@ known = Session.SPRING_SECURITY_CONTEXT??
     <#assign
     user = Session.SPRING_SECURITY_CONTEXT.authentication.principal
     name = user.getUsername()
+    fio = user.getFio()
     id = user.getId()
     isAdmin = user.getAuthorities()?seq_contains('BOSS')
     user_auth = true
@@ -13,7 +14,7 @@ known = Session.SPRING_SECURITY_CONTEXT??
 <#else>
     <#assign
     name = "unknown"
-    isAdmin = falseв
+    isAdmin = false
     user_auth = false
     >
 </#if>

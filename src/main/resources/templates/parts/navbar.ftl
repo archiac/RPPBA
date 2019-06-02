@@ -3,9 +3,11 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <ul class="nav navbar-default">
+        <#if isAdmin>
             <li class="nav-product">
                 <a class="nav-link" href="/user">Список пользователей</a>
             </li>
+        </#if>
          <li class="nav-product">
              <a class="nav-link" href="/contract/list">Список активных договоров</a>
          </li>
