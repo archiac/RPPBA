@@ -42,12 +42,6 @@ public class ContractController {
         return "itemList";
     }
 
-    @GetMapping("{product}")
-    public String userEditForm(@PathVariable Product product, Model model) {
-        model.addAttribute("item", product);
-        return "contractAdd";
-    }
-
     @GetMapping("list")
     public String orderList( Map<String,Object> model){
         Iterable<Contract> contracts= contractService.loadAllContracts();
@@ -100,4 +94,20 @@ public class ContractController {
         model.put("contracts", contracts);
         return "contractHistory";
     }
+
+    @GetMapping("{contract}")
+    public String changeDiscount(@PathVariable Contract contract, Model model) {
+        model.addAttribute("contract", contract);
+        return "changeDiscount";
+    }
+
+    @PostMapping("changeDisc")
+    public String changeDisc(@RequestParam("contrId") Contract contract,@RequestParam("new_discount") double new_disc){
+        double old_sum=contract.getTotal_sum()/(1-contract.getCompany().getStatus().getDiscount()/100);
+        double new_sum=old_sum*(1-new_disc/100);
+        contract.setTotal_sum(new_sum);
+        contractRepo.save(contract);
+        return "redirect:/contract/list";
+    }
+
 }

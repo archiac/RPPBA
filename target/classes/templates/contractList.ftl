@@ -42,7 +42,8 @@
             <input type="hidden" value="${contract.dog_id}" name="contractId">
             <input type="hidden" value="${_csrf.token}" name="_csrf">
             <button class="btn btn-danger" type="submit">Оформить договор</button>
-        </form> </td></#if>
+        </form>
+            <a href="/contract/${contract.dog_id}" class="btn btn-primary" role="button" aria-pressed="true">Предоставить скидку</a></td></#if>
     </tr>
     </#if>
     </#list>
