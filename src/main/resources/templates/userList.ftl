@@ -8,6 +8,7 @@
     <thead>
     <tr>
         <th>Username</th>
+        <th>FIO</th>
         <th>Email</th>
         <th>Телефон</th>
         <th>Роль</th>
